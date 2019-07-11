@@ -35,7 +35,7 @@ CREATE TABLE `usuario` (
   `nome` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `nomeusuario` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
-  `senha` char(32) COLLATE utf8mb4_bin NOT NULL,
+  `senha` char(40) COLLATE utf8mb4_bin NOT NULL,
   `criado` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
