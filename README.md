@@ -18,4 +18,4 @@ dados com Ajax. ~~Recepção com PHP~~
 Cadastro de usuário no banco de dados
 
 ## aula06 - 11 de julho de 2019
-validação de login 
+verificação de sessão, página de perfil, sair
