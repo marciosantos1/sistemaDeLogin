@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['nomeUsuario']))
+    header("location:perfil.php");
+
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -314,8 +320,13 @@
                         data:$('#formLogin')
                                 .serialize()+'&action=entrar',
                         success:function(resposta){
+                            if(resposta === "ok"){
+                               window.location = "perfil.php"; 
+                            }else{
+                                                        
                             $('#alerta').show();
                             $('#resultado').html(resposta);
+                        }
                         }                    
                     });            
                 }
