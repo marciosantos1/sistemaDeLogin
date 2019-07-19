@@ -21,7 +21,8 @@ if(isset($_SESSION['nomeUsuario']))
     <style>
         #alerta,
         #caixaRegistro,
-        #caixaSenha{
+        #caixaSenha,
+        #espera{
             display: none;
         }  
     </style>
@@ -40,6 +41,12 @@ if(isset($_SESSION['nomeUsuario']))
               </div>
           </section>
           
+          <!-- SPINNER de espera -->
+          <div class="col-lg-4 offset-lg-4 text-center mb-4">
+              <div class="spinner-grow text-primary" role="status" id="espera">
+  <span class="sr-only">Esperando...</span>
+</div>
+ </div>         
           <!-- Formulário de Login -->
           <section class="row">
               <div class="col-lg-4 offset-lg-4 bg-light rounded"
@@ -55,7 +62,7 @@ if(isset($_SESSION['nomeUsuario']))
                                  class="form-control"
                                  placeholder="Nome do usuário"
                                  required minlength="5"
-                                 value="<?php= isset($_COOKIE['nomeUsuario'])? $_COOKIE['nomeUsuario']:"";?>">
+                                 value="<?= isset($_COOKIE['nomeUsuario'])? $_COOKIE['nomeUsuario']:""?>">
                                  
                       </div>
                       
@@ -65,14 +72,14 @@ if(isset($_SESSION['nomeUsuario']))
                                  class="form-control"
                                  placeholder="Senha"
                                  required minlength="6"
-                                 value="<?php= isset($_COOKIE['senhaUsuario'])? 'checked':'';?>">
+                                 value="<?= isset($_COOKIE['senhaUsuario'])? 'checked':''?>">
                       </div>
                       
                       <div class="form-group mt-5">
                           <div class="custom-control custom-checkbox">
                               <input type="checkbox" name="lembrar"
                                      id="checkLembrar" 
-                                     class="custom-control-input"<?php if(isset($_COOKIE['senhaUsuario'])){echo 'checked';}?>>
+                                     class="custom-control-input"<?= isset($_COOKIE['senhaUsuario'])? 'checked':"" ?>>
                               <label for="checklembrar" 
                                      class="custom-control-label">
                                   Lembrar de mim.
@@ -294,12 +301,14 @@ if(isset($_SESSION['nomeUsuario']))
                         .checkValidity()){
                     //Não deixa o formulário ser enviado    
                     e.preventDefault();
+                    $("#espera").show();
                     $.ajax({
                         url: 'recebe.php',
                         method: 'post',
                         data:$('#formRegistro')
                                 .serialize()+'&action=registro',
                         success:function(resposta){
+                            $("#espera").hide();
                             $('#alerta').show();
                             $('#resultado').html(resposta);
                         }                    
@@ -346,12 +355,14 @@ if(isset($_SESSION['nomeUsuario']))
                         .checkValidity()){
                     //Não deixa o formulário ser enviado    
                     e.preventDefault();
+                    $("#espera").show();
                     $.ajax({
                         url: 'recebe.php',
                         method: 'post',
                         data:$('#formSenha')
                                 .serialize()+'&action=gerar',
                         success:function(resposta){
+                            $("#espera").hide();
                             $('#alerta').show();
                             $('#resultado').html(resposta);
                         }                    
