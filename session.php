@@ -12,7 +12,7 @@ if (isset($_SESSION['nomeUsuario'])){
     $resultado = $sql->get_result();
     $linha = $resultado->fetch_array(MYSQLI_ASSOC);
     
-    $nomeUsuário = $linha["nomeUsuario"];
+    //$nomeUsuário = $linha["nomeUsuario"];
     $nomeCompleto = $linha["nome"];
     $email = $linha["email"];
     $criado = $linha["criado"];

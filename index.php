@@ -77,10 +77,14 @@ if(isset($_SESSION['nomeUsuario']))
                       
                       <div class="form-group mt-5">
                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" name="lembrar"
+                              
+                              <input type="checkbox" 
+                                     name="lembrar"
                                      id="checkLembrar" 
-                                     class="custom-control-input"<?= isset($_COOKIE['senhaUsuario'])? 'checked':"" ?>>
-                              <label for="checklembrar" 
+                                     class="custom-control-input" 
+                    <?= isset($_COOKIE['senhaUsuario'])? 'checked':"" ?>>
+                              
+                              <label for="checkLembrar" 
                                      class="custom-control-label">
                                   Lembrar de mim.
                               </label>
