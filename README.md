@@ -1,6 +1,11 @@
 # sistemaDeLogin
 Aula de Introdução à Prog. Web - Criação de um sistema de Login
 
+## aula08 - 25 de julho de 2019
+sistema de geração de nova senha.
+com token e tempo de vida token.
+
+
 ## aula07 - 18 de julho de 2019
 sessão e cookie funcionando, preparação para recuperar senha. :cookie:
 
