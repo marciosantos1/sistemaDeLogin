@@ -18,5 +18,7 @@ if (isset($_SESSION['nomeUsuario'])){
     $criado = $linha["criado"];
     
     
-}else header ('location: index.php');
+}else{ 
+    
+header ('location: index.php');}
 

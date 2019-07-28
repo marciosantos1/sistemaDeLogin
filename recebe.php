@@ -26,7 +26,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'entrar'){
     $sql->bind_param("ss", $nomeUsuário, $senha);
     $sql->execute();
     
-    $busca = $sql->fetch();
+    $busca = $sql->fetch();// fetch = buscar
     if($busca != null){
         //Usuário e senha estão corretos
         $_SESSION['nomeUsuario'] = $nomeUsuário;
@@ -43,7 +43,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'entrar'){
                 setcookie ('senhaUsuario','');
         }
     }else {
-        echo 'Falhou o login.. senha de usuário ou senha inválidos!!!';
+        echo 'Falhou o login... Nome de usuário ou Senha inválidos!!!';
     }
     
 } elseif(isset($_POST['action']) 
@@ -55,7 +55,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'entrar'){
     $senhaUsuário = verificar_entrada($_POST['senhaUsuario']);
     $senhaUsuárioConfirmar =
  verificar_entrada($_POST['senhaUsuarioConfirmar']);
-    $criado = date("Y-m-d H:i:s"); //Cria uma data Ano-mês-dia
+    $criado = date("Y-m-d H:i:s"); //Cria uma data e hora Ano-mês-dia
     
     //Gerar um hash para as senhas
     $senha = sha1($senhaUsuário);

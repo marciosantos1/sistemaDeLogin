@@ -33,9 +33,9 @@ if(isset($_SESSION['nomeUsuario']))
           <section class="row">
               <div class="col-lg-4 offset-lg-4" 
                    id="alerta">
-                  <div class="alert alert-success text-center">
+                  <div class="alert bg-dark text-warning alert-success text-center">
                       <strong id="resultado">
-                          Olá Maravilhoso Mundo Bootstrap
+                          Falhou o login... Nome de usuário ou Senha inválidos!!!
                       </strong>
                   </div>
               </div>
@@ -173,12 +173,12 @@ if(isset($_SESSION['nomeUsuario']))
                             <label for="checkConcordar" 
                                    class="custom-control-label">
                                 Eu concordo com os
-                                <a href="#">termos e condições.</a>
+                                <a href="#" id="btnVerTermosECondicoes">termos e condições.</a>
                             </label>
                           </div>
                       </div>
                       
-                      <!-- botão enviar -->
+                      <!-- botão Registrar -->
                       <div class="form-group">
                           <input type="submit" 
                                  name="btnRegistroUsuario"
@@ -201,6 +201,8 @@ if(isset($_SESSION['nomeUsuario']))
               </div>
           </section>
           <br> <!-- maroto -->
+          
+          
           <!-- Formulário de Recuperação de Senha -->
           <section class="row">
               <div class="col-lg-4 offset-lg-4 bg-light rounded"
@@ -235,15 +237,39 @@ if(isset($_SESSION['nomeUsuario']))
                   </form>
               </div>
           </section>
+          <br>
           
-          <!-- Formulário de Recuperação de Senha -->
-          
-          
+        <!-- Formulário Termos e condições -->          
+          <section class="row">
+              <div class="col-lg-4 offset-lg-4 bg-light rounded"id="caixaTermosECondicoes">                 
+                  <h2 class="text-center mt-2">
+                       Termos e Condições MFDS 
+                  </h2>
+                 <form>                    
+                       <p class="bg-light text-dark mt-5 rounded">     
+                           <em> Termos e condições de uso é o documento pelo qual um site ou um 
+                          aplicativo define as regras da utilização de seu serviço pelos usuários. 
+                          Ou seja, o dono da aplicação determina as condições de uso do site, 
+                          seja ele gratuito ou pago. Os usuários são informados sobre regras como
+                          idade mínima, cadastro, pagamento, direitos autorais e responsabilidades.</em>
+                 
+                       </p>
+                       <!-- Voltar para o registro -->
+                      <div class="form-group float-right">
+                          <p class="text-center">
+                              Já fez a leitura?
+                              <a href="#" id="btnVoltar2">
+                                  ...Voltar >>>
+                              </a>
+                          </p>
+                      </div>             
+                  </form>   
+              </div>               
+          </section>
+          <br>
           
       </main>
       
-    
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -259,6 +285,7 @@ if(isset($_SESSION['nomeUsuario']))
            //Mostra caixa de senha no Login
            $("#btnEsqueci").click(function(){
                $("#caixaLogin").hide();//Esconder
+               $("#caixaTermosECondicoes").hide();//Esconder
                $("#caixaSenha").show();//Mostrar
            });
            
@@ -266,17 +293,37 @@ if(isset($_SESSION['nomeUsuario']))
            $("#btnVoltar").click(function(){
                $("#caixaLogin").show();//Mostrar
                $("#caixaSenha").hide();//Esconder
+               $("#caixaTermosECondicoes").hide();//Esconder
+               $("#caixaRegistro").hide();//Esconder
+           });
+           //Volta para o registro
+           $("#btnVoltar2").click(function(){
+               $("#caixaLogin").hide();
+               $("#caixaSenha").hide();//Esconder
+               $("#caixaTermosECondicoes").hide();//Esconder
+               $("#caixaRegistro").show();
            });
            
             //Mostra caixa Registrar no Login
            $("#btnRegistrar").click(function(){
                $("#caixaLogin").hide();//Esconder
+               $("#alerta").hide();//Esconder
                $("#caixaRegistro").show();//Mostrar
+               $("#caixaTermosECondicoes").hide();//Esconder
            });
            //Mostra caixa Login no Registro
            $("#btnEntrarRegistrado").click(function(){
                $("#caixaLogin").show();//Mostrar
                $("#caixaRegistro").hide();//Esconder
+               $("#caixaTermosECondicoes").hide();//Esconder
+           });
+           
+            //Ver termos e condições
+           $("#btnVerTermosECondicoes").click(function(){
+               $("#caixaLogin").hide();//Esconder
+               $("#caixaRegistro").hide();//Esconder
+               $("#caixaTermosECondicoes").show();
+               
            });
            
            //Validação com jQuery
