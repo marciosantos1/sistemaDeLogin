@@ -293,8 +293,6 @@ if(isset($_SESSION['nomeUsuario']))
            $("#btnVoltar").click(function(){
                $("#caixaLogin").show();//Mostrar
                $("#caixaSenha").hide();//Esconder
-              
-               
            });
            //Volta para o registro
            $("#btnVoltar2").click(function(){
@@ -309,7 +307,6 @@ if(isset($_SESSION['nomeUsuario']))
                $("#caixaLogin").hide();//Esconder
                $("#alerta").hide();//Esconder
                $("#caixaRegistro").show();//Mostrar
-              
            });
            //Mostra caixa Login no Registro
            $("#btnEntrarRegistrado").click(function(){
@@ -322,8 +319,7 @@ if(isset($_SESSION['nomeUsuario']))
            $("#btnVerTermosECondicoes").click(function(){
                $("#caixaLogin").hide();//Esconder
                $("#caixaRegistro").hide();//Esconder
-               $("#caixaTermosECondicoes").show();
-               
+               $("#caixaTermosECondicoes").show();  
            });
            
            //Validação com jQuery
