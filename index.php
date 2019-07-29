@@ -19,6 +19,7 @@ if(isset($_SESSION['nomeUsuario']))
     
     <title>Sistema de Login</title>
     <style>
+        #caixaTermosECondicoes,
         #alerta,
         #caixaRegistro,
         #caixaSenha,
@@ -285,7 +286,6 @@ if(isset($_SESSION['nomeUsuario']))
            //Mostra caixa de senha no Login
            $("#btnEsqueci").click(function(){
                $("#caixaLogin").hide();//Esconder
-               $("#caixaTermosECondicoes").hide();//Esconder
                $("#caixaSenha").show();//Mostrar
            });
            
@@ -293,8 +293,8 @@ if(isset($_SESSION['nomeUsuario']))
            $("#btnVoltar").click(function(){
                $("#caixaLogin").show();//Mostrar
                $("#caixaSenha").hide();//Esconder
-               $("#caixaTermosECondicoes").hide();//Esconder
-               $("#caixaRegistro").hide();//Esconder
+              
+               
            });
            //Volta para o registro
            $("#btnVoltar2").click(function(){
@@ -309,13 +309,13 @@ if(isset($_SESSION['nomeUsuario']))
                $("#caixaLogin").hide();//Esconder
                $("#alerta").hide();//Esconder
                $("#caixaRegistro").show();//Mostrar
-               $("#caixaTermosECondicoes").hide();//Esconder
+              
            });
            //Mostra caixa Login no Registro
            $("#btnEntrarRegistrado").click(function(){
                $("#caixaLogin").show();//Mostrar
                $("#caixaRegistro").hide();//Esconder
-               $("#caixaTermosECondicoes").hide();//Esconder
+             
            });
            
             //Ver termos e condições
